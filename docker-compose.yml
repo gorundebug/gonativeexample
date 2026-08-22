@@ -1,0 +1,48 @@
+services:
+  inventoryservice:
+    image: gonativeexample-inventoryservice:latest
+    build:
+      context: .
+      target: inventoryservice
+      extra_hosts:
+        - "host.docker.internal:host-gateway"
+      args:
+        SERVICEGEN_RUNTIME_STRIP: ${SERVICEGEN_RUNTIME_STRIP:-ON}
+        GOPROXY: ${GOPROXY:-https://proxy.golang.org,direct}
+    restart: unless-stopped
+    environment:
+      INVENTORY_SERVICE_HTTP_HOST: 0.0.0.0
+      INVENTORY_SERVICE_GRPC_HOST: 0.0.0.0
+      INVENTORY_SERVICE_RESPONSE_DELAY: ${INVENTORY_SERVICE_RESPONSE_DELAY:-0s}
+    ports:
+      - "9092:9092"
+      - "9202:9202"
+    networks:
+      - app_net
+
+  orderservice:
+    image: gonativeexample-orderservice:latest
+    build:
+      context: .
+      target: orderservice
+      extra_hosts:
+        - "host.docker.internal:host-gateway"
+      args:
+        SERVICEGEN_RUNTIME_STRIP: ${SERVICEGEN_RUNTIME_STRIP:-ON}
+        GOPROXY: ${GOPROXY:-https://proxy.golang.org,direct}
+    restart: unless-stopped
+    environment:
+      ORDER_SERVICE_HTTP_HOST: 0.0.0.0
+      INVENTORY_SERVICE_API_ADDRESS: inventoryservice:9202
+      ORDER_SERVICE_REQUEST_TIMEOUT: ${ORDER_SERVICE_REQUEST_TIMEOUT:-5s}
+      ORDER_SERVICE_SOFT_DEADLINE_MARGIN: ${ORDER_SERVICE_SOFT_DEADLINE_MARGIN:-1s}
+    ports:
+      - "9091:9091"
+    depends_on:
+      - inventoryservice
+    networks:
+      - app_net
+
+networks:
+  app_net:
+    driver: bridge
