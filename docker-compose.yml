@@ -1,6 +1,6 @@
 services:
   inventoryservice:
-    image: gonativeexample-inventoryservice:latest
+    image: gonativeexample-inventoryservice:local
     build:
       context: .
       target: inventoryservice
@@ -24,7 +24,7 @@ services:
       - app_net
 
   orderservice:
-    image: gonativeexample-orderservice:latest
+    image: gonativeexample-orderservice:local
     build:
       context: .
       target: orderservice
