@@ -4,8 +4,8 @@ go 1.25.4
 
 require (
 	github.com/google/uuid v1.6.0
-	github.com/gorundebug/inventory_service_api v0.2.48
-	github.com/gorundebug/order_service_api v0.2.48
+	github.com/gorundebug/inventory_service_api v0.2.49
+	github.com/gorundebug/order_service_api v0.2.49
 	google.golang.org/grpc v1.81.1
 )
 
