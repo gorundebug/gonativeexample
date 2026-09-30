@@ -11,12 +11,13 @@ import (
 	"syscall"
 	"time"
 
+	"google.golang.org/grpc"
+
 	"github.com/gorundebug/gonativeexample/internal/app"
 	"github.com/gorundebug/gonativeexample/internal/inventory"
 	benchmarkmiddleware "github.com/gorundebug/gonativeexample/internal/middleware"
 	statushandler "github.com/gorundebug/gonativeexample/internal/status"
 	inventoryapi "github.com/gorundebug/inventory_service_api/pkg/generated/proto/inventoryserviceapi"
-	"google.golang.org/grpc"
 )
 
 func main() {

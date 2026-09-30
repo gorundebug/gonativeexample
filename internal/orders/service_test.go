@@ -11,10 +11,11 @@ import (
 	"testing"
 	"time"
 
+	"google.golang.org/grpc"
+
 	inventoryapi "github.com/gorundebug/inventory_service_api/pkg/generated/proto/inventoryserviceapi"
 	"github.com/gorundebug/inventory_service_api/pkg/generated/proto/inventoryserviceapi/processorderitem"
 	"github.com/gorundebug/order_service_api/pkg/generated/openapi/orderserviceapi/processorder"
-	"google.golang.org/grpc"
 )
 
 type fakePool struct {

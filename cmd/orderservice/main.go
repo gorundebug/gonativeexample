@@ -11,11 +11,12 @@ import (
 	"syscall"
 	"time"
 
+	"google.golang.org/grpc"
+
 	"github.com/gorundebug/gonativeexample/internal/app"
 	benchmarkmiddleware "github.com/gorundebug/gonativeexample/internal/middleware"
 	"github.com/gorundebug/gonativeexample/internal/orders"
 	statushandler "github.com/gorundebug/gonativeexample/internal/status"
-	"google.golang.org/grpc"
 )
 
 func main() {

@@ -10,12 +10,13 @@ import (
 	"testing"
 	"time"
 
+	"google.golang.org/grpc"
+	"google.golang.org/grpc/test/bufconn"
+
 	"github.com/gorundebug/gonativeexample/internal/inventory"
 	"github.com/gorundebug/gonativeexample/internal/orders"
 	inventoryapi "github.com/gorundebug/inventory_service_api/pkg/generated/proto/inventoryserviceapi"
 	"github.com/gorundebug/order_service_api/pkg/generated/openapi/orderserviceapi/processorder"
-	"google.golang.org/grpc"
-	"google.golang.org/grpc/test/bufconn"
 )
 
 func TestOrderHTTPToInventoryGRPC(t *testing.T) {
