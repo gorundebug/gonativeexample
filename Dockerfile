@@ -1,5 +1,5 @@
 ARG DEPENDENCY_DOCKER_REGISTRY=docker.io
-FROM ${DEPENDENCY_DOCKER_REGISTRY}/library/golang:1.25-bookworm AS builder
+FROM ${DEPENDENCY_DOCKER_REGISTRY}/library/golang:1.26.4-bookworm AS builder
 ARG TARGETARCH
 ARG SERVICEGEN_RUNTIME_STRIP=ON
 ARG GOPROXY=https://proxy.golang.org,direct
