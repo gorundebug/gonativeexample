@@ -1,11 +1,11 @@
 module github.com/gorundebug/gonativeexample
 
-go 1.25.4
+go 1.26
 
 require (
 	github.com/google/uuid v1.6.0
-	github.com/gorundebug/inventory_service_api v0.2.157
-	github.com/gorundebug/order_service_api v0.2.157
+	github.com/gorundebug/inventory_service_api v0.2.158
+	github.com/gorundebug/order_service_api v0.2.158
 	google.golang.org/grpc v1.81.1
 )
 
